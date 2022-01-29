@@ -1,19 +1,67 @@
-import { ALL_TEAMS } from "./constantes";
+import { FIXTURE_LIVE, FIXTURE_LAST, FIXTURE_NEXT, STATITICS, HEAD_TO_HEAD, EVENT } from "./constantes";
 
-export const allTeams = () =>{
-    return function(dispatch){
-        return fetch("https://v3.football.api-sports.io/teams?id=33", {
-                "method": "GET",
-                "headers": {
-                "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "61100d225020b015bb79f0c4609df2a5"
-            }
-        })
+export const fixtureLive = () =>{
+    return function (dispatch){
+        return fetch('http://localhost:3001/fixtures')
                 .then(response => response.json())
-                .then((json)=>{
-                    dispatch({type:ALL_TEAMS, payload: json})
+                .then((json) =>{
+                    dispatch({type: FIXTURE_LIVE, payload : json})
                 })
-                .catch(error => console.log(error))
-        
+                .catch((error) => console.log(error))
+    }
+}
+
+export const fixtureLast = () =>{
+    return function (dispatch){
+        return fetch('http://localhost:3001/fixtures/last')
+                .then(response => response.json())
+                .then((json) =>{
+                    dispatch({type: FIXTURE_LAST, payload : json})
+                })
+                .catch((error) => console.log(error))
+    }
+}
+
+export const fixtureNext = () =>{
+    return function (dispatch){
+        return fetch('http://localhost:3001/fixtures/next')
+                .then(response => response.json())
+                .then((json) =>{
+                    dispatch({type: FIXTURE_NEXT, payload : json})
+                })
+                .catch((error) => console.log(error))
+    }
+}
+
+export const statictis = () =>{
+    return function (dispatch){
+        return fetch('http://localhost:3001/fixtures/statictis')
+                .then(response => response.json())
+                .then((json) =>{
+                    dispatch({type: STATITICS, payload : json})
+                })
+                .catch((error) => console.log(error))
+    }
+}
+
+export const event = () =>{
+    return function (dispatch){
+        return fetch('http://localhost:3001/fixtures/event')
+                .then(response => response.json())
+                .then((json) =>{
+                    dispatch({type: EVENT, payload : json})
+                })
+                .catch((error) => console.log(error))
+    }
+}
+
+export const headToHeadAll = () =>{
+    return function (dispatch){
+        return fetch('http://localhost:3001/fixtures/head')
+                .then(response => response.json())
+                .then((json) =>{
+                    dispatch({type: HEAD_TO_HEAD, payload : json})
+                })
+                .catch((error) => console.log(error))
     }
 }

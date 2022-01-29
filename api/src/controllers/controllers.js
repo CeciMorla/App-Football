@@ -86,6 +86,10 @@ const liveFixture= async () =>{
                     name: e.teams.away.name,
                     logo: e.teams.away.logo
                 }
+            },
+            goals:{
+                home: e.goals.home,
+                away: e.goals.away
             }
         })
     })

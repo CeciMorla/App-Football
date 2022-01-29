@@ -4,7 +4,7 @@ const initialState = {
     live: [],
     last:[],
     next:[],
-    statitics:[],
+    statistics:[],
     head: [],
     event: []
 };
@@ -29,7 +29,7 @@ const rootReducer = (state = initialState, action) =>{
         case STATITICS:
             return{
                 ...state,
-                statitics: action.payload
+                statistics: action.payload
             }
         case HEAD_TO_HEAD:
             return{

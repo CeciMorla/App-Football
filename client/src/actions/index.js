@@ -33,9 +33,9 @@ export const fixtureNext = () =>{
     }
 }
 
-export const statictis = () =>{
+export const statistics = (fixture) =>{
     return function (dispatch){
-        return fetch('http://localhost:3001/fixtures/statictis')
+        return fetch(`http://localhost:3001/fixtures/statistics/${fixture}`)
                 .then(response => response.json())
                 .then((json) =>{
                     dispatch({type: STATITICS, payload : json})
@@ -44,9 +44,9 @@ export const statictis = () =>{
     }
 }
 
-export const event = () =>{
+export const event = (fixture) =>{
     return function (dispatch){
-        return fetch('http://localhost:3001/fixtures/event')
+        return fetch(`http://localhost:3001/fixtures/event/${fixture}`)
                 .then(response => response.json())
                 .then((json) =>{
                     dispatch({type: EVENT, payload : json})
@@ -55,9 +55,9 @@ export const event = () =>{
     }
 }
 
-export const headToHeadAll = () =>{
+export const headToHeadAll = (id) =>{
     return function (dispatch){
-        return fetch('http://localhost:3001/fixtures/head')
+        return fetch(`http://localhost:3001/fixtures/head/${id}`)
                 .then(response => response.json())
                 .then((json) =>{
                     dispatch({type: HEAD_TO_HEAD, payload : json})

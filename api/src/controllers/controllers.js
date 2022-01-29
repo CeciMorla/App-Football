@@ -137,7 +137,12 @@ const lastFixtures = async () =>{
                     name: e.teams.away.name,
                     logo: e.teams.away.logo
                 }
+            },
+            goals:{
+                home: e.goals.home,
+                away: e.goals.away
             }
+
         })
     })
     
@@ -219,7 +224,7 @@ const headToHeadAll = async (id) =>{
     }
 }
 
-const statictis = async (fixture)=>{
+const statistics = async (fixture)=>{
     try {
         let stac ={
             method: 'GET',
@@ -262,7 +267,7 @@ module.exports = {
     fixtures,
     timezone,
     headToHeadAll,
-    statictis,
+    statistics,
     event,
     liveFixture,
     lastFixtures

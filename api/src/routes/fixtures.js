@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {fixtures, headToHeadAll, statictis, event,liveFixture,lastFixtures} = require('../controllers/controllers.js');
+const {fixtures, headToHeadAll, statistics, event,liveFixture,lastFixtures} = require('../controllers/controllers.js');
 
 const router = Router();
 
@@ -46,18 +46,18 @@ router.get('/head/:id', async (req,res,next)=>{
     }
 })
 
-router.get('/statictis', async (req,res,next)=>{
-    const {fixture} = req.query;
+router.get('/statistics/:fixture', async (req,res,next)=>{
+    const {fixture} = req.params;
     try {
-        let stac = await statictis(fixture);
+        let stac = await statistics(fixture);
         res.send(stac)
     } catch (error) {
         next(error)
     }
 })
 
-router.get('/event', async (req,res,next)=>{
-    const {fixture} = req.query;
+router.get('/event/:fixture', async (req,res,next)=>{
+    const {fixture} = req.params;
     try {
         let e = await event(fixture);
         res.send(e)

@@ -14,7 +14,34 @@ const fixtures = async () =>{
     try {
     let info = await axios.request(fixturesAll)
     let allInfo = info.data.response   
-    return allInfo
+    const infoAll = allInfo.map(e =>{
+        return (p={
+            fixture : {
+                id : e.fixture.id,
+                date: e.fixture.date
+            },
+            league : {
+                id: e.league.id,
+                name: e.league.name,
+                country: e.league.country,
+                logo: e.league.logo
+            },
+            teams:{
+                home :{
+                    id : e.teams.home.id,
+                    name: e.teams.home.name,
+                    logo: e.teams.home.logo
+                },
+                away :{
+                    id : e.teams.away.id,
+                    name: e.teams.away.name,
+                    logo: e.teams.away.logo
+                }
+            }
+        })
+    })
+    
+      return infoAll
       
 } catch (error) {
         console.log(error)
@@ -34,9 +61,36 @@ const liveFixture= async () =>{
 
     try {
     let info = await axios.request(fixturesLive)
-    let allInfo = info.data.response   
-    return allInfo
-      
+    let allInfo = info.data.response
+    
+    const infoAll = allInfo.map(e =>{
+        return (p={
+            fixture : {
+                id : e.fixture.id,
+                date: e.fixture.date
+            },
+            league : {
+                id: e.league.id,
+                name: e.league.name,
+                country: e.league.country,
+                logo: e.league.logo
+            },
+            teams:{
+                home :{
+                    id : e.teams.home.id,
+                    name: e.teams.home.name,
+                    logo: e.teams.home.logo
+                },
+                away :{
+                    id : e.teams.away.id,
+                    name: e.teams.away.name,
+                    logo: e.teams.away.logo
+                }
+            }
+        })
+    })
+    
+      return infoAll
 } catch (error) {
         console.log(error)
     }
@@ -56,7 +110,34 @@ const lastFixtures = async () =>{
     try {
     let info = await axios.request(fixturesAll)
     let allInfo = info.data.response   
-    return allInfo
+    const infoAll = allInfo.map(e =>{
+        return (p={
+            fixture : {
+                id : e.fixture.id,
+                date: e.fixture.date
+            },
+            league : {
+                id: e.league.id,
+                name: e.league.name,
+                country: e.league.country,
+                logo: e.league.logo
+            },
+            teams:{
+                home :{
+                    id : e.teams.home.id,
+                    name: e.teams.home.name,
+                    logo: e.teams.home.logo
+                },
+                away :{
+                    id : e.teams.away.id,
+                    name: e.teams.away.name,
+                    logo: e.teams.away.logo
+                }
+            }
+        })
+    })
+    
+      return infoAll
       
 } catch (error) {
         console.log(error)
@@ -96,8 +177,39 @@ const headToHeadAll = async (id) =>{
 
     try {
         let head = await axios.request(headTohead)
-        console.log(head.data.response)
-        return head.data.response
+        let info = head.data.response
+
+        let allInfo = info.map(e =>{
+            return (team = {
+                fixture:{
+                    id: e.fixture.id,
+                    date: e.fixture.date
+                },
+                league:{
+                    id: e.league.id,
+                    name: e.league.name,
+                    country: e.league.country,
+                    logo: e.league.logo
+                },
+                teams:{
+                    home:{
+                        id: e.teams.home.id,
+                        name: e.teams.home.name,
+                        logo: e.teams.home.logo
+                    },
+                    away:{
+                        id: e.teams.away.id,
+                        name: e.teams.home.name,
+                        logo: e.teams.away.logo
+                    }
+                },
+                goals:{
+                    home: e.goals.home,
+                    away: e.goals.away
+                }
+            })
+        })
+         return allInfo
     } catch (error) {
         console.log(error)
     }

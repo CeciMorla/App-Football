@@ -16,6 +16,7 @@ const TablesLive= ({live}) => {
                             logoA={e.teams.away.logo}
                             goalsH={e.goals.home}
                             goalsA={e.goals.away}
+                            fixture={e.fixture.id}
                         />
                     )
                 })

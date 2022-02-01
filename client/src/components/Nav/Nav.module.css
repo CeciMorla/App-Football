@@ -1,0 +1,26 @@
+.img{
+    width: 93px;
+    height: auto;
+}
+
+.nav{
+    background-color: #031633;
+    height: 87px;
+    position: relative;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: -12%;
+}
+
+.btnbutton{
+    background-color: white;
+    color: #031633;
+}
+
+.btnbutton:hover{
+    background-color: #031633;
+    color: white;
+}
